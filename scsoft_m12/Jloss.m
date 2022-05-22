@@ -147,6 +147,7 @@ else
     P_w_u = 1./2.*2.*pi.*integral(@(z) a_u.*abs(H_z_u(z)).^2,d/2,L_u+d/2,'ArrayValued',true,'RelTol',int_rtol,'AbsTol',int_atol);
 end
 
+H_rho_s = @(r,z) sum(p_m_s.'/(1i.*omega.*m_0).*besselj(1,h_m_s.'.*r).*(-B_m.*V_m.'.*sin(p_m_s.'*z)),1);
 % Upper sample region flange loss (normalised)
 if(ANAL_INT)
     C=zeros(N_s,N_s);
